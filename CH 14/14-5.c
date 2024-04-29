@@ -1,7 +1,7 @@
 #include <stdio.h>
-
+//defines macro that sums 2 numbers
 #define SUM(x, y) ((x) + (y))
-
+//main function uses SUM
 int main() {
     int x = 7;
     int y = 6;
