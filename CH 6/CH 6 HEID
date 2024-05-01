@@ -7,6 +7,7 @@ int main() {
 
     printf("Enter 20 numbers between 10 and 100:\n");
 
+//execute the loop 20 times adding one loop counter at a time
     for (int i = 0; i < 20; i++) {
         int num;
         scanf("%d", &num);
@@ -30,7 +31,7 @@ int main() {
             }
         }
     }
-
+//print the numbers
     printf("\n");
 
     return 0;

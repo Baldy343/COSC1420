@@ -5,7 +5,7 @@
 #define SIZE 12
 
 void mazeTraverse(char maze[SIZE][SIZE], int row, int col);
-
+//the maze per the book
 int main() {
     char maze[SIZE][SIZE] = {
         {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'},
@@ -28,22 +28,22 @@ int main() {
 }
 
 void mazeTraverse(char maze[SIZE][SIZE], int row, int col) {
-    // Base case: if the current position is outside the maze or is a wall, return
+    // if the current position is outside the maze or is a wall, return
     if (row < 0 || row >= SIZE || col < 0 || col >= SIZE || maze[row][col] == '#') {
         return;
     }
 
-    // Base case: if the current position is the exit, mark it with 'X' and return
+    // if the current position is the exit, mark it with 'X' and return
     if (row == SIZE - 1 && col == SIZE - 1) {
         maze[row][col] = 'X';
         printf("Maze solved!\n");
         return;
     }
 
-    // Recursive case: mark the current position with 'X'
+    // Recursive: mark the current position with 'X'
     maze[row][col] = 'X';
 
-    // Display the maze
+    // display the maze
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             printf("%c ", maze[i][j]);
@@ -52,7 +52,7 @@ void mazeTraverse(char maze[SIZE][SIZE], int row, int col) {
     }
     printf("\n");
 
-    // Recursive case: try moving in all four directions (up, down, left, right)
+    // recursive: try moving in all four directions (up, down, left, right)
     mazeTraverse(maze, row - 1, col); // Up
     mazeTraverse(maze, row + 1, col); // Down
     mazeTraverse(maze, row, col - 1); // Left
@@ -60,4 +60,11 @@ void mazeTraverse(char maze[SIZE][SIZE], int row, int col) {
 
     // If none of the above recursive calls find the exit, backtrack by marking the current position with '.'
     maze[row][col] = '.';
+    
+    // check if the maze is complete
+    if (maze[0][0] == 'X') {
+        printf("Maze is complete!\n");
+    } else {
+        printf("Maze is not complete.\n");
+    }
 }
