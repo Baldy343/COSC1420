@@ -16,3 +16,4 @@ int product(int n, ...)
     va_end(args);
     return result;
 }
+
